@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="antialized">
+   <div class="flex  w-full min-h-screen items-center justify-center"> 
+       <div class="w-full max-w-4xl p-8 shadow-lg"> 
+            <header class="flex m-2 justify-between mb-10">
+                <div>
+                    <h1 class="text-4xl font-semibold text-blue-700">Welcome</h1>
+                    <span class="text-blue-700">NCS-19-003</span>
+                </div>
+
+                <div class="w-20 h-35">
+                    <img src="image/1.jpg" alt="">
+                </div>
+            </header>
+            
+            <div class="flex flex-col justify-center items-center mb-5">
+                <h1 class="text-3xl text-blue-700">Result Checker</h1>
+            </div>
+
+        <div class="mb-20 bg-center bg-contain bg-no-repeat" style="background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('image/1.jpg');">
+                <form action="">
+                    <div class="mb-4">
+                        <input id="name" class="h-12 w-full pl-8 pr-3 text-base shadow-lg placeholder-gray-500  bg-gray-100 rounded-lg focus:border-blue-400 text-gray-500 " type="text" name="name" placeholder="Matric Number"/>
+                        <span class="text-red-500 text-xs italic" id="nameloc"></span>
+                    </div>
+                    <div class="mb-4 relative inline-block w-full text-gray-700 ">
+                        
+                        <select name="academic" id="select" class="block leading-tight h-12 w-full pl-8 focus:outline-none pr-3 text-base shadow-lg placeholder-gray-500  bg-gray-100 rounded-lg focus:shadow-outline" placeholder="Select Academic Session">
+                            <option value="" disabled selected>Select Academic Session</option>
+                            <option value="1">1992-1993</option>
+                            <option value="2">1993-1994</option>
+                            <option value="3">1994-1995</option>
+                            <option value="4">1995-1996</option>
+                            <option value="5">2019-2020</option>
+                            <option value="6">2020-2021</option>
+                        </select>
+                        
+                        <span class="text-red-500 text-xs italic" id="selectloc"></span>
+                    </div>
+                    <div class="mb-4 relative inline-block w-full text-gray-700 ">
+                        
+                        <select name="academic" id="demo" class="block leading-tight h-12 w-full pl-8 focus:outline-none pr-3 text-base shadow-lg placeholder-gray-500  bg-gray-100 rounded-lg focus:shadow-outline" placeholder="Select Academic Session">
+                            <option value="" disabled selected>Select Level Result</option>
+                            <option value="1">ND I</option>
+                            <option value="2">ND II</option>
+                            <option value="3">ND III</option>
+                            <option value="4">HND I</option>
+                            <option value="5">HND II</option>
+                            <option value="6">HND III</option>
+                        </select>
+                    
+                        <span class="text-red-500 text-xs italic" id="test"></span>
+                    </div>
+                    <div class="block shadow-lg bg-white p-4 rounded">
+                        <div class="flex items-center justify-around">
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" id="summer" value="1" name="radio" class="form-radio cursor-pointer h-5 w-5" >
+                                    <span class="ml-2">1st Semester</span>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" id="winter" value="2" name="radio" class="form-radio cursor-pointer h-5 w-5 text-blue-500">
+                                    <span class="ml-2">2nd Semester</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="text-red-500 text-xs italic" id="radioloc"></span>
+                    <div class="flex items-center justify-center px-2 mt-4">
+                        <a href="result.html" onclick="return validate()" class="rounded inline-block py-2 w-full bg-blue-700 font-bold text-white text-center focus:outline-none uppercase">check result</a>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class=" flex flex-col justify-center items-center ">
+                    <div class="relative bg-transparent p-2 rounded-full bg-red-200">
+                    <a class="text-red-500 uppercase  pl-8 cursor-pointer" href='index.html'>logout</a>   
+                        <div class="absolute inset-y-0 left-0 flex items-center px-2 pointer-events-none">
+                            <i class="fas fa-sign-out-alt text-red-500"></i>
+                    </div>
+                </div>
+                <span class="uppercase mt-10 text-gray-500">v 1.1</span>
+            </div>
+
+        </div>
+    </div> 
+</body>
+<script>
+        function validate(){  
+var name=document.getElementById('name').value;  
+var select=document.getElementById('select').value  
+var demo=document.getElementById('demo').value
+var getSelectedValue = document.getElementById('summer').value;
+var getSelectedValue2 = document.getElementById('winter').value;  
+var status=false;  
+  
+if(name.length<5){  
+document.getElementById("nameloc").innerHTML=  
+" Please enter matric number";  
+status=false;  
+}else{  
+document.getElementById("nameloc").innerHTML="Details received";  
+status=true;  
+} 
+
+//select validation 
+if(select == ''){  
+document.getElementById("selectloc").innerHTML=  
+" Please select";  
+status=false;  
+}else{  
+document.getElementById("selectloc").innerHTML=" Details received";  
+status=true;
+}  
+
+
+if(demo == ''){  
+document.getElementById("test").innerHTML=  
+" Please select";  
+status=false;  
+}else{  
+document.getElementById("test").innerHTML=" Details received";  
+status=true;
+}  
+ 
+
+//radio button validation
+if(document.getElementById('summer').checked == true){
+    document.getElementById("radioloc").innerHTML=  
+" Radio button is selected";
+} else if(document.getElementById('winter').checked == true){
+    document.getElementById("radioloc").innerHTML=  
+" Radio button is selected";
+} else{
+    document.getElementById("radioloc").innerHTML=  
+" Please select";
+}
+
+    return status
+}
+</script>
+</html>

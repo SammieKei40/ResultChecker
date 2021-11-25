@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Checker Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="antialized " >
+  <div class="flex  w-full min-h-screen items-center justify-center">  
+    <div class="w-full max-w-4xl p-8 shadow-lg" >
+        <div class="flex flex-col justify-center items-center">
+            <img src="image/1.jpg" alt="" class="w-20 h-35">
+            <p class="text-center mt-2 font-semibold text-gray-500 break-normal">D.S Adegbenro ICT Polytechnic P.M.B 5028, Ifoltori, Ewekoro Ogun State</p>
+            <a href="" class="text-blue-700 mt-6 font-normal">Login Account</a>
+            <p class="text-center mt-2 font-semibold text-gray-500">This app will be used for the purpose of checking only your result</p>
+        </div>
+    
+        <div class="mb-20 bg-center bg-contain bg-no-repeat" style="background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('image/1.jpg');">
+            <form action="" class="mt-4">
+                <div class="mb-4">
+                    <input class="h-12 w-full pl-8 pr-3 text-base shadow-lg placeholder-gray-500  bg-gray-100 rounded-lg focus:border-blue-400 text-gray-500 " id="name" type="text" name="name" placeholder="Matric Number"/>
+                    <span class="text-red-500 text-xs italic" id="nameloc"></span>
+                </div>
+                <div class="relative text-gray-700">
+                    <div>
+                    <input class="h-12 w-full pl-8 pr-3 text-base shadow-lg placeholder-gray-500  bg-gray-100 rounded-lg focus:border-blue-400 text-gray-500 " id="password" type="password" name="password" placeholder="Password"/>
+                    <span class="text-red-500 text-xs italic" id="passwordloc"></span>    
+                    </div>
+                        <div class="absolute inset-y-0 left-0 flex items-center justify-center px-2 pointer-events-none">
+                            <i class="fas fa-lock w-4 h-4 fill-current text-gray-500"></i>
+                        </div>
+                        <div class="absolute inset-y-0 right-0 flex items-center justify-center px-2">
+                            <i id="togglePassword" class="far fa-eye cursor-pointer fill-current  text-gray-500"></i>
+                        </div>
+                </div>
+                <div class="flex mt-4 justify-between">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" class="form-checkbox" checked />
+                        <span class="ml-2">Remember me</span>
+                      </label>
+                     <a href="" class="text-blue-700">Forget Password</a> 
+                </div>
+                <div class="flex items-center justify-center px-2 mt-4">
+                    <a href="Dashboard.html" onclick="return validate()" name="form" class="rounded inline-block py-2 w-full bg-blue-700 font-bold text-center text-white focus:outline-none">LOGIN</a>
+                </div>
+            </form>
+
+        </div>
+        
+        <div class="flex justify-center items-center space-x-1">
+            <span>School Portal?</span>
+            <a href="https://dsadegbenropoly.edu.ng" target="blank" class="text-blue-500">Click Here</a>
+        </div>
+        
+    </div>
+  </div>
+</body>
+
+<script>
+    function validate(){  
+var name=document.getElementById('name').value  
+var password=document.getElementById('password').value;  
+var status=false;  
+const togglePassword = document.querySelector('#togglePassword');
+
+
+// name validation
+if(name.length<6){  
+document.getElementById("nameloc").innerHTML=  
+" Please enter matric number";  
+status=false;  
+}else{  
+document.getElementById("nameloc").innerHTML="Details Correct";  
+status=true;  
+}  
+if(password.length<6){  
+document.getElementById("passwordloc").innerHTML=  
+" Please enter password";  
+status=false;  
+}else{  
+document.getElementById("passwordloc").innerHTML=" Details Correct";  
+}  
+return status;  
+}  
+
+//eye validation 
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+
+</script>
+</html>
